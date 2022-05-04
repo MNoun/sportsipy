@@ -92,3 +92,16 @@ class TestMLBPlayer:
         type(player)._weight = mock_weight
 
         assert not player.weight
+
+    def test_player_name_returns_none(self, **kwargs):
+        mock_name = PropertyMock(return_value=None)
+        player = Player(None)
+        type(player)._name = mock_name
+
+        assert not player.name
+
+    def test_player_name(self):
+        altuve = Player('altuvjo01')
+        assert altuve.name == 'Jose Altuve'
+
+
